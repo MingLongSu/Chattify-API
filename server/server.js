@@ -1,9 +1,15 @@
 const { chats } = require('./dummyData/dummyData'); // just for testing
 
+const dotenv = require('dotenv');
 const express = require('express');
+const connectDB = require('./config/db');
+
+dotenv.config();
+
+connectDB();
 const app = express();
 
-const PORT = 5000; // temp
+const PORT = process.env.PORT || 5000; // temp
 
 app.listen(5000, () => { 
     console.log(`Server is listening on ${ PORT }`);
